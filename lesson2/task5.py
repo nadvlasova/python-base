@@ -12,7 +12,8 @@
 
 price = [55.67, 33.56, 67.88, 99.34, 22.45, 77.45, 88.34, 44.76, 11.45, 55.98]
 a = [str(i) for i in price]
-# a.sort()
+# a.sort() # сортировка по возрастанию
+# a.sort(reverse = True) # сортировка по убыванию
 print(type(a))
 b = []
 for i in a:
