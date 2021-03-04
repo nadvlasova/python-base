@@ -14,3 +14,19 @@
 #     }
 # }
 # Сможете ли вы вернуть отсортированный по ключам словарь?
+
+employee = ("Иван Сергеев", "Инна Серова", "Петр Алексеев", "Илья Иванов", "Анна Савельева")
+organized = {}
+def thesaurus(employee):
+    for i in employee:
+        first_letter = i[0]
+        if first_letter in organized:
+            organized[first_letter].append(i)
+        else:
+            organized[first_letter] = [i]
+    return(organized)
+import pprint
+pprint.pprint(thesaurus(employee))
+
+for first_letter in sorted(organized.keys(), reverse=True):
+    print(first_letter, organized[first_letter])
