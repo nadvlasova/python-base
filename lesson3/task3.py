@@ -9,12 +9,17 @@
 # }
 # Подумайте: полезен ли будет вам оператор распаковки? Сможете ли вы вернуть отсортированный по ключам словарь?
 
-worker = ["Иван", "Мария", "Петр", "Илья"]
-a = str(worker)
-for i in a:
-    i.split()
-    print(i)
+employee = ["Иван", "Мария", "Петр", "Илья"]
+organized = {}
+def thesaurus(employee):
+    for i in employee:
+        first_letter = i[0]
+        if first_letter in organized:
+            organized[first_letter].append(i)
+        else:
+            organized[first_letter] = [i]
+    return(organized)
 
-print(a)
+print(thesaurus(employee))
 
-# def thesaurus():
+
