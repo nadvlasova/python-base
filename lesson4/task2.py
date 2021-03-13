@@ -14,30 +14,23 @@ http://www.cbr.ru/scripts/XML_daily.asp.
 from urllib.request import urlopen
 from xml.etree import ElementTree as etree
 
-cur = ['USD', 'EUR']
 def get_currency_rate(cur):
-    for i in cur:
-        if i == 'USD':
-            print(cur_USD, rate_USD)
+    return rates.get(cur)
 
-        elif i == 'EUR':
-            print(cur_EUR, rate_EUR)
-    else:
-        print(None)
+cur = ['USD', 'EUR']
 
+rates = {}
 with urlopen("https://www.cbr.ru/scripts/XML_daily.asp") as r:
     el = etree.parse(r)
     root = el.getroot()
 
-    cur_USD = el.findtext('.//Valute[@ID="R01235"]/CharCode')
-    rate_USD = el.findtext('.//Valute[@ID="R01235"]/Value')
-    rate_USD = float(rate_USD.replace(',','.'))
+    for currency in cur:
+        rate = el.findtext('.//Valute[CharCode="'+currency+'"]/Value')
+        rate = float(rate.replace(',','.'))
+        rates[currency] = rate
 
-    cur_EUR = el.findtext('.//Valute[@ID="R01239"]/CharCode')
-    rate_EUR = el.findtext('.//Valute[@ID="R01239"]/Value')
-    rate_EUR = float(rate_EUR.replace(',', '.'))
-
-print(get_currency_rate(cur))
+for c in cur:
+    print(c, get_currency_rate(c))
 
 
 
