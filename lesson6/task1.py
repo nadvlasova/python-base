@@ -13,15 +13,17 @@
 """
 
 with open('nginx_logs.txt', 'r+', encoding='utf-8') as f:
-    first = (f.readline())
-    counter = 1
+    counter = 0
     for x in f:
         if counter < 100:
-            n =(first.split())
+            n =(x.split())
             counter +=1
         else:
             break
         print(n[0], n[5], n[6])
+
+
+
 
 
 
