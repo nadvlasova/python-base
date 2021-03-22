@@ -5,13 +5,12 @@
 код должен работать даже с файлами, размер которых превышает объем ОЗУ компьютера.
 """
 # т.е. вытащить все IP и циклом через count проверить какой
-
+result ={}
 with open('nginx_logs.txt', 'r+', encoding='utf-8') as f:
-    counter = 0
     for x in f:
-        if counter < 100:
-            n =(x.split())
-            counter +=1
-        else:
-            break
-        print(n[0])
+        n = (x.split())
+        ip = n[0]
+        result.setdefault(ip,0)
+        result[ip] += 1
+
+print(result)
