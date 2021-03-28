@@ -1,3 +1,11 @@
+'''
+1. Написать скрипт, создающий стартер (заготовку) для проекта со следующей структурой папок:
+|--my_project
+   |--settings
+   |--mainapp
+   |--adminapp
+   |--authapp
+'''
 # import os
 #
 # names_folders = ('settings', 'mainapp', 'adminapp', 'authapp')
