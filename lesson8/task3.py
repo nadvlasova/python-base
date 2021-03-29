@@ -16,12 +16,10 @@ def calc_cube(x):
 calc_cube(5: <class 'int'>)
 '''
 
-def type_logger(func): # это все, со строки 78 по 85, вся эта конструкция  get_inner_func = это декоратор, который выводит на экран
+def type_logger(func):
 
-    def inner_func(*args):  # аргументы и результат той функции перед которой мы определим декоратор @get_inner_func
+    def inner_func(*args):
         print('calc_cube:', args, type(args))
-        # if args[0] != 3: # так простая проверочка, чтобы первый аргумент был тройка
-        #     raise ValueError('Нужно первым аргументом передавать 3') # выбросили исключение
         res = func(int(*args))
         print('result', res)
         return res
